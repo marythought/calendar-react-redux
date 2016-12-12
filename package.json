@@ -1,8 +1,8 @@
 {
-  "name": "redux-todo",
+  "name": "calendar-react-redux",
   "private": true,
   "version": "1.0.0",
-  "description": "yet another todo app with react and redux",
+  "description": "a calendar of events with react and redux",
   "main": "index.js",
   "author": "Mary Dickson Diaz <mdickson@gmail.com>",
   "license": "MIT",

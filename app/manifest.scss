@@ -2,10 +2,7 @@ body {
   background: #bae;
 }
 
-.completed-task {
-  text-decoration: line-through;
-}
-
-.incomplete-task {
-  color: red;
+img {
+  max-width: 40px;
+  max-height: 40px;
 }
