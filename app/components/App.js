@@ -1,13 +1,11 @@
 import React from 'react'
-import Footer from './Footer'
 import AddEvent from '../containers/AddEvent'
-import VisibleEventsList from '../containers/VisibleEventsList'
+import Calendar from './Calendar'
 
 const App = () =>
   <div>
     <AddEvent />
-    <VisibleEventsList />
-    <Footer />
+    <Calendar />
   </div>
 
 export default App

@@ -1,11 +1,11 @@
-// start_time, end_time, event_name, description, location, tags, photo
+// startTime, endTime, eventName, description, location, tags, photo
 const event = (state = {}, action) => {
   switch (action.type) {
     case 'ADD_EVENT':
       return {
-        start_time: action.start_time,
-        end_time: action.end_time,
-        event_name: action.event_name,
+        startTime: action.startTime,
+        endTime: action.endTime,
+        eventName: action.eventName,
         description: action.description,
         location: action.location,
         tags: action.tags,
@@ -18,27 +18,27 @@ const event = (state = {}, action) => {
 }
 
 const staticEvents = [
-  { start_time: 'January 1, 2017',
-    end_time: 'February 1, 2017',
-    event_name: 'Parrot Party',
+  { startTime: 'January 1, 2017',
+    endTime: 'February 1, 2017',
+    eventName: 'Parrot Party',
     description: 'A conga line of parrots',
     location: 'Seattle, WA',
     tags: ['parrots', 'party'],
     photo: 'https://www.hedweb.com/animimag/parrot.jpg.pagespeed.ce.Oj1akPd-0_.jpg',
     id: '0'
   },
-  { start_time: 'January 2, 2017',
-    end_time: 'February 2, 2017',
-    event_name: 'Parrot Party 2',
+  { startTime: 'January 2, 2017',
+    endTime: 'February 2, 2017',
+    eventName: 'Parrot Party 2',
     description: 'A conga line of parrots',
     location: 'Seattle, WA',
     tags: ['parrots'],
     photo: 'https://www.hedweb.com/animimag/parrot.jpg.pagespeed.ce.Oj1akPd-0_.jpg',
     id: '1'
   },
-  { start_time: 'January 1, 2017',
-    end_time: 'February 1, 2017',
-    event_name: 'Parrot Party',
+  { startTime: 'January 1, 2017',
+    endTime: 'February 1, 2017',
+    eventName: 'Parrot Party',
     description: 'A conga line of parrots',
     location: 'Seattle, WA',
     tags: ['parrots', 'party'],
@@ -46,7 +46,8 @@ const staticEvents = [
     id: '2'
   }
 ]
-const events = (state = staticEvents, action) => {
+
+const events = (state = [], action) => {
   switch (action.type) {
     case 'ADD_EVENT':
       return [

@@ -1,20 +1,23 @@
 import React from 'react'
+import Tag from './Tag'
 
-const Event = ({ start_time, end_time, event_name, description, location, tags, photo }) =>
+const Event = ({ startTime, endTime, eventName, description, location, tags, photo }) =>
   <li className={'event'}>
-    <h1>{event_name}</h1>
+    <h1>{eventName}</h1>
+    <p>Starts: {startTime} | Ends: {endTime}</p>
+    <p>Location: {location}</p>
     <img src={photo} />
     <p>{description}</p>
   </li>
 
 const propTypes = {
-  start_time: React.PropTypes.string,
-  end_time: React.PropTypes.string,
-  event_name: React.PropTypes.string.isRequired,
+  startTime: React.PropTypes.string,
+  endTime: React.PropTypes.string,
+  eventName: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   location: React.PropTypes.string,
   tags: React.PropTypes.array,
   photo: React.PropTypes.string
 }
 
-export default Object.assign(Event, propTypes)
+export default Object.assign(Event, { propTypes })

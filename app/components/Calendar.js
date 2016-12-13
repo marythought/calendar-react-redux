@@ -12,13 +12,4 @@ const Calendar = ({ events }) =>
     )}
   </ul>
 
-// const propTypes = {
-//   events: PropTypes.arrayOf(PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     completed: PropTypes.bool.isRequired,
-//     text: PropTypes.string.isRequired
-//   }).isRequired).isRequired,
-//   onToDoClick: PropTypes.func.isRequired
-// }
-
 export default Calendar
