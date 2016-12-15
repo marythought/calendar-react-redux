@@ -1,11 +1,11 @@
 import React from 'react'
 import AddEvent from '../containers/AddEvent'
-import Calendar from './Calendar'
+import GetEvents from '../containers/GetEvents'
 
 const App = () =>
   <div>
     <AddEvent />
-    <Calendar />
+    <GetEvents />
   </div>
 
 export default App
