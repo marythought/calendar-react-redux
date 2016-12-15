@@ -1,24 +1,17 @@
 import uuid from 'uuid'
 
 // defining a function that takes parameter text and returns an object
-export const addTodo = (text) => {
+export const addEvent = (object) => {
   return {
-    type: 'ADD_TODO',
+    type: 'ADD_EVENT',
     id: uuid.v4(),
-    text // same as writing text: text
+    object
   }
 }
 
-export const setVisibilityFilter = (filter) => {
-  return {
-    type: 'SET_VISIBILITY_FILTER',
-    filter
-  }
-}
-
-export const toggleTodo = (id) => {
-  return {
-    type: 'TOGGLE_TODO',
-    id
-  }
-}
+// export const toggleEvent = (id) => {
+//   return {
+//     type: 'TOGGLE_TODO',
+//     id
+//   }
+// }

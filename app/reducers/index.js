@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import visibilityFilter from './visibilityFilter'
+import { reducer as formReducer } from 'redux-form'
+import events from './events'
 
-const todoApp = combineReducers({
-  todos,
-  visibilityFilter
+const eventApp = combineReducers({
+  form: formReducer,
+  events
 })
 
-export default todoApp
+export default eventApp

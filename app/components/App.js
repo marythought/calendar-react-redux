@@ -1,13 +1,11 @@
 import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodosList from '../containers/VisibleTodosList'
+import AddEvent from '../containers/AddEvent'
+import GetEvents from '../containers/GetEvents'
 
 const App = () =>
   <div>
-    <AddTodo />
-    <VisibleTodosList />
-    <Footer />
+    <AddEvent />
+    <GetEvents />
   </div>
 
 export default App
