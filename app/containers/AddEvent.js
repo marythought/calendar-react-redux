@@ -8,14 +8,13 @@ const AddEvent = ({ dispatch }) => {
   return (
     <div>
       <AddEventForm onSubmit={(values) => {
-        console.log(values);
         dispatch(addEvent(
           values.eventName,
           values.startTime,
           values.endTime,
           values.description,
           values.location,
-          values.tags,
+          values.tags.split(' '),
           values.photo
         ))
         dispatch(reset('AddEventForm'))
