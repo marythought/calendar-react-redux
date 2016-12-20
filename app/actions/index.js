@@ -1,11 +1,17 @@
 import uuid from 'uuid'
 
 // defining a function that takes parameter text and returns an object
-export const addEvent = (object) => {
+export const addEvent = (startTime, endTime, eventName, description, location, tags, photo) => {
   return {
     type: 'ADD_EVENT',
     id: uuid.v4(),
-    object
+    startTime,
+    endTime,
+    eventName,
+    description,
+    location,
+    tags,
+    photo
   }
 }
 
