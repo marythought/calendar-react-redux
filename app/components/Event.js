@@ -1,8 +1,7 @@
 import React from 'react'
-import Tag from './Tag'
 
 const Event = ({ startTime, endTime, eventName, description, location, tags, photo }) =>
-  <li className={'event'}>
+  <li className='event'>
     <h1>{eventName}</h1>
     <p>Starts: {startTime} | Ends: {endTime}</p>
     <p>Location: {location}</p>

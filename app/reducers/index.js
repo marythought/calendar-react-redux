@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import events from './events'
 import { reducer as formReducer } from 'redux-form'
+import events from './events'
 
 const eventApp = combineReducers({
-  events,
-  form: formReducer
+  form: formReducer,
+  events
 })
 
 export default eventApp
