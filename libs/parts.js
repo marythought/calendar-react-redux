@@ -1,8 +1,8 @@
-const webpack = require('webpack')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const NpmInstallPlugin = require('npm-install-webpack-plugin')
+const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 exports.indexTemplate = function (options) {
   return {
@@ -11,11 +11,11 @@ exports.indexTemplate = function (options) {
         template: require('html-webpack-template'),
         title: options.title,
         appMountId: options.appMountId,
-        inject: false
-      })
-    ]
-  }
-}
+        inject: false,
+      }),
+    ],
+  };
+};
 
 exports.loadJSX = function (include) {
   return {
@@ -24,13 +24,13 @@ exports.loadJSX = function (include) {
         {
           test: /\.(js|jsx)$/,
           // Enable caching for extra performance
-          loaders: ['babel?cacheDirectory'], //babel is what allows us to write in ES6
-          include: include
-        }
-      ]
-    }
-  }
-}
+          loaders: ['babel?cacheDirectory'], // babel is what allows us to write in ES6
+          include,
+        },
+      ],
+    },
+  };
+};
 
 exports.loadIsparta = function (include) {
   return {
@@ -39,12 +39,12 @@ exports.loadIsparta = function (include) {
         {
           test: /\.(js|jsx)$/,
           loaders: ['isparta'],
-          include: include
-        }
-      ]
-    }
-  }
-}
+          include,
+        },
+      ],
+    },
+  };
+};
 
 exports.lintJSX = function (include) {
   return {
@@ -53,12 +53,12 @@ exports.lintJSX = function (include) {
         {
           test: /\.(js|jsx)$/,
           loaders: ['standard'],
-          include: include
-        }
-      ]
-    }
-  }
-}
+          include,
+        },
+      ],
+    },
+  };
+};
 
 exports.enableReactPerformanceTools = function () {
   return {
@@ -66,12 +66,12 @@ exports.enableReactPerformanceTools = function () {
       loaders: [
         {
           test: require.resolve('react'),
-          loader: 'expose?React'
-        }
-      ]
-    }
-  }
-}
+          loader: 'expose?React',
+        },
+      ],
+    },
+  };
+};
 
 exports.devServer = function (options) {
   const ret = {
@@ -96,28 +96,28 @@ exports.devServer = function (options) {
       // 0.0.0.0 is available to all network devices
       // unlike default `localhost`.
       host: options.host, // Defaults to `localhost`
-      port: options.port // Defaults to 8080
+      port: options.port, // Defaults to 8080
     },
     plugins: [
       // Enable multi-pass compilation for enhanced performance
       // in larger projects. Good default.
       new webpack.HotModuleReplacementPlugin({
-        multiStep: true
-      })
-    ]
-  }
+        multiStep: true,
+      }),
+    ],
+  };
 
   if (options.poll) {
     ret.watchOptions = {
       // Delay the rebuild after the first change
       aggregateTimeout: 300,
       // Poll using interval (in ms, accepts boolean too)
-      poll: 1000
-    }
+      poll: 1000,
+    };
   }
 
-  return ret
-}
+  return ret;
+};
 
 exports.setupCSS = function (paths) {
   return {
@@ -126,62 +126,62 @@ exports.setupCSS = function (paths) {
         {
           test: /\.(scss|sass)$/,
           loaders: ['style', 'css', 'sass'],
-          include: paths
-        }
-      ]
-    }
-  }
-}
+          include: paths,
+        },
+      ],
+    },
+  };
+};
 
 exports.minify = function () {
   return {
     plugins: [
       new webpack.optimize.UglifyJsPlugin({
         compress: {
-          warnings: false
-        }
-      })
-    ]
-  }
-}
+          warnings: false,
+        },
+      }),
+    ],
+  };
+};
 
 exports.setFreeVariable = function (key, value) {
-  const env = {}
-  env[key] = JSON.stringify(value)
+  const env = {};
+  env[key] = JSON.stringify(value);
   return {
     plugins: [
-      new webpack.DefinePlugin(env)
-    ]
-  }
-}
+      new webpack.DefinePlugin(env),
+    ],
+  };
+};
 
 exports.extractBundle = function (options) {
-  const entry = {}
-  entry[options.name] = options.entries
+  const entry = {};
+  entry[options.name] = options.entries;
   return {
     // Define an entry point needed for splitting
-    entry: entry,
+    entry,
     plugins: [
       // Extract bundle and manifest files.
       // Manifest is needed for reliable caching.
       new webpack.optimize.CommonsChunkPlugin({
         names: [options.name, 'manifest'],
         // options.name modules only
-        minChunks: Infinity
-      })
-    ]
-  }
-}
+        minChunks: Infinity,
+      }),
+    ],
+  };
+};
 
 exports.clean = function (path) {
   return {
     plugins: [
       new CleanWebpackPlugin([path], {
-        root: process.cwd()
-      })
-    ]
-  }
-}
+        root: process.cwd(),
+      }),
+    ],
+  };
+};
 
 exports.extractCSS = function (paths) {
   return {
@@ -191,22 +191,22 @@ exports.extractCSS = function (paths) {
         {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract('css!sass'),
-          include: paths
-        }
-      ]
+          include: paths,
+        },
+      ],
     },
     plugins: [
       // Output extracted CSS to a file
-      new ExtractTextPlugin('[name].[chunkhash].css')
-    ]
-  }
-}
+      new ExtractTextPlugin('[name].[chunkhash].css'),
+    ],
+  };
+};
 
 exports.npmInstall = function (options) {
-  options = options || {}
+  options = options || {};
   return {
     plugins: [
-      new NpmInstallPlugin(options)
-    ]
-  }
-}
+      new NpmInstallPlugin(options),
+    ],
+  };
+};
